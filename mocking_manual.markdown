@@ -23,6 +23,7 @@ The main idea is to make manual mocking easier, rather than to make automated mo
 * [Output Parameters](#output_parameters)
 * [Return Values](#return_values)
 * [Passing other data](#other_data)
+* [Enforcing call order](#call_order)
 * [Other MockSupport](#other_mock_support)
 * [MockSupport Scope](#mock_scope)
 * [MockPlugin](#mock_plugin)
@@ -337,6 +338,17 @@ pobject = (ClassFromProductionCode*) mock().getData("importantObject").getObject
 {% endhighlight %}
 
 Like return values, setting data will not ever make a test fail but it provides support in building mock objects.
+
+<a id="call_order"> </a>
+
+### Call Order
+
+By default, checkExpectations doesn't check the order in which the calls were made.  To have the mocking framework check the order of calls, use withCallOrder:
+
+{% highlight c++ %}
+mock().expectOneCall("function0").withCallOrder(1);
+mock().expectOneCall("function1").withCallOrder(2);
+{% endhighlight %}
 
 <a id="other_mock_support"> </a>
 
