@@ -14,7 +14,7 @@ CppUTest has support for building mocks. This document describes the mocking sup
 
 The main idea is to make manual mocking easier, rather than to make automated mocks. If manual mocking is easier, then it could also be automated in the future, but that isn't a goal by itself.
 
-## Table of Content
+## Table of Contents
 
 * [Simple Scenario](#simple_scenario)
 * [Using Objects](#objects)
@@ -414,7 +414,7 @@ When using gdb, get a stack trace using:
     r
     bt
 
-(r is run, it will run until crashes. bt is back trace which will produce a stack)
+(r is run, it will run until it crashes. bt is back trace which will produce a stack)
 
 <a id="mock_scope"> </a>
 
