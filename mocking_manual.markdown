@@ -214,10 +214,10 @@ public:
 
 The isEqual is called to compare the two parameters. The valueToString is called when an error message is printed and it needs to print the actual and expected values. If you want to use normal C functions, you can use the MockFunctionComparator which accepts pointers to functions in the constructor.
 
-To remove the comparators, all you needs to do is call removeAllComparators, like:
+To remove the comparators, all you need to do is call removeAllComparatorsAndCopiers, like:
 
 {% highlight c++ %}
-mock().removeAllComparators();
+mock().removeAllComparatorsAndCopiers();
 {% endhighlight %}
 
 Comparators sometimes lead to surprises, so a couple of warnings on its usage:
@@ -498,7 +498,7 @@ mock_c()->actualCall("foo")->withIntParameters("integer", 10)->returnValue().val
 mock_c()->installComparator("type", equalMethod, toStringMethod);
 mock_scope_c("scope")->expectOneCall("bar")->withParameterOfType("type", "name", object);
 mock_scope_c("scope")->actualCall("bar")->withParameterOfType("type", "name", object);
-mock_c()->removeAllComparators();
+mock_c()->removeAllComparatorsAndCopiers();
 
 mock_c()->setIntData("important", 10);
 
